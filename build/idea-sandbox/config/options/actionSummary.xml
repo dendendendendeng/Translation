@@ -1,0 +1,33 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <data>
+      <entry key="EditorBackSpace">
+        <ActionSummary times="19" last="1615911855006" />
+      </entry>
+      <entry key="EditorChooseLookupItem">
+        <ActionSummary times="2" last="1615714783320" />
+      </entry>
+      <entry key="EditorCopy">
+        <ActionSummary times="3" last="1616082421077" />
+      </entry>
+      <entry key="EditorEnter">
+        <ActionSummary times="2" last="1615911846225" />
+      </entry>
+      <entry key="EditorRight">
+        <ActionSummary times="3" last="1615714791198" />
+      </entry>
+      <entry key="NewClass">
+        <ActionSummary times="1" last="1615714761371" />
+      </entry>
+      <entry key="OpenFile">
+        <ActionSummary times="1" last="1616499793765" />
+      </entry>
+      <entry key="WelcomeScreen.CreateNewProject">
+        <ActionSummary times="1" last="1615714154589" />
+      </entry>
+      <entry key="com.intellij.openapi.ui.DialogWrapper$5">
+        <ActionSummary times="1" last="1615715773136" />
+      </entry>
+    </data>
+  </component>
+</application>

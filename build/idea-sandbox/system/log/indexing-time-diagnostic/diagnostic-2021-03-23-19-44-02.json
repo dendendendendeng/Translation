@@ -1,0 +1,243 @@
+{
+  "appInfo" : {
+    "build" : "202.7660.26",
+    "buildDate" : "Tue, 6 Oct 2020 16:32:11 +0800",
+    "productCode" : "IC",
+    "generated" : "Tue, 23 Mar 2021 19:44:02 +0800",
+    "os" : "Windows 10 10.0",
+    "runtime" : "JetBrains s.r.o. 11.0.8 11.0.8+10-b944.34"
+  },
+  "runtimeInfo" : {
+    "maxMemory" : 536870912,
+    "numberOfProcessors" : 4,
+    "maxNumberOfIndexingThreads" : 4,
+    "maxSizeOfFileForIntelliSense" : 2560000,
+    "maxSizeOfFileForContentLoading" : 20971520
+  },
+  "projectIndexingHistory" : {
+    "projectName" : "Test",
+    "numberOfFileProviders" : 1,
+    "totalNumberOfFiles" : 5,
+    "times" : {
+      "indexingTime" : "1 s 140 ms",
+      "scanFilesTime" : "380 ms",
+      "pushPropertiesTime" : "9 ms",
+      "indexExtensionsTime" : "< 1 ms",
+      "pushPropertiesStart" : "Tue, 23 Mar 2021 19:44:01 +0800",
+      "pushPropertiesEnd" : "Tue, 23 Mar 2021 19:44:01 +0800",
+      "scanFilesStart" : "Tue, 23 Mar 2021 19:44:01 +0800",
+      "scanFilesEnd" : "Tue, 23 Mar 2021 19:44:02 +0800",
+      "indexExtensionsStart" : "Tue, 23 Mar 2021 19:44:01 +0800",
+      "indexExtensionsEnd" : "Tue, 23 Mar 2021 19:44:01 +0800",
+      "indexingStart" : "Tue, 23 Mar 2021 19:44:01 +0800",
+      "indexingEnd" : "Tue, 23 Mar 2021 19:44:02 +0800"
+    },
+    "numberOfIndexingThreads" : 3,
+    "totalStatsPerFileType" : [ {
+      "fileType" : "XML",
+      "partOfTotalIndexingTime" : "39.9%",
+      "partOfTotalContentLoadingTime" : "44.5%",
+      "totalNumberOfFiles" : 2,
+      "totalFilesSize" : "441 B",
+      "indexingSpeed" : "1.82 kB/s",
+      "biggestContributors" : [ {
+        "providerName" : "Module 'Test'",
+        "numberOfFiles" : 2,
+        "totalFilesSize" : "441 B",
+        "partOfTotalIndexingTimeOfThisFileType" : "100.0%"
+      } ]
+    }, {
+      "fileType" : "textmate",
+      "partOfTotalIndexingTime" : "30.8%",
+      "partOfTotalContentLoadingTime" : "2.0%",
+      "totalNumberOfFiles" : 1,
+      "totalFilesSize" : "3 B",
+      "indexingSpeed" : "16 B/s",
+      "biggestContributors" : [ {
+        "providerName" : "Module 'Test'",
+        "numberOfFiles" : 1,
+        "totalFilesSize" : "3 B",
+        "partOfTotalIndexingTimeOfThisFileType" : "100.0%"
+      } ]
+    }, {
+      "fileType" : "HTML",
+      "partOfTotalIndexingTime" : "21.5%",
+      "partOfTotalContentLoadingTime" : "53.3%",
+      "totalNumberOfFiles" : 1,
+      "totalFilesSize" : "241 B",
+      "indexingSpeed" : "1.85 kB/s",
+      "biggestContributors" : [ {
+        "providerName" : "Module 'Test'",
+        "numberOfFiles" : 1,
+        "totalFilesSize" : "241 B",
+        "partOfTotalIndexingTimeOfThisFileType" : "100.0%"
+      } ]
+    }, {
+      "fileType" : "JSP",
+      "partOfTotalIndexingTime" : "7.7%",
+      "partOfTotalContentLoadingTime" : "< 1%",
+      "totalNumberOfFiles" : 1,
+      "totalFilesSize" : "381 B",
+      "indexingSpeed" : "8.15 kB/s",
+      "biggestContributors" : [ {
+        "providerName" : "Module 'Test'",
+        "numberOfFiles" : 1,
+        "totalFilesSize" : "381 B",
+        "partOfTotalIndexingTimeOfThisFileType" : "100.0%"
+      } ]
+    } ],
+    "totalStatsPerIndexer" : [ {
+      "indexId" : "Stubs",
+      "partOfTotalIndexingTime" : "37.8%",
+      "totalNumberOfFiles" : 3,
+      "totalFilesSize" : "682 B",
+      "indexingSpeed" : "2.98 kB/s"
+    }, {
+      "indexId" : "TodoIndex",
+      "partOfTotalIndexingTime" : "28.2%",
+      "totalNumberOfFiles" : 5,
+      "totalFilesSize" : "1.07 kB",
+      "indexingSpeed" : "6.23 kB/s"
+    }, {
+      "indexId" : "IdIndex",
+      "partOfTotalIndexingTime" : "9.7%",
+      "totalNumberOfFiles" : 5,
+      "totalFilesSize" : "1.07 kB",
+      "indexingSpeed" : "18.06 kB/s"
+    }, {
+      "indexId" : "Trigram.Index",
+      "partOfTotalIndexingTime" : "9.4%",
+      "totalNumberOfFiles" : 5,
+      "totalFilesSize" : "1.07 kB",
+      "indexingSpeed" : "18.74 kB/s"
+    }, {
+      "indexId" : "DomFileIndex",
+      "partOfTotalIndexingTime" : "4.6%",
+      "totalNumberOfFiles" : 2,
+      "totalFilesSize" : "441 B",
+      "indexingSpeed" : "15.79 kB/s"
+    }, {
+      "indexId" : "FrameworkDetectionIndex",
+      "partOfTotalIndexingTime" : "3.6%",
+      "totalNumberOfFiles" : 2,
+      "totalFilesSize" : "441 B",
+      "indexingSpeed" : "20.32 kB/s"
+    }, {
+      "indexId" : "fileIncludes",
+      "partOfTotalIndexingTime" : "3.2%",
+      "totalNumberOfFiles" : 2,
+      "totalFilesSize" : "441 B",
+      "indexingSpeed" : "22.56 kB/s"
+    }, {
+      "indexId" : "html5.custom.attributes.index",
+      "partOfTotalIndexingTime" : "3.2%",
+      "totalNumberOfFiles" : 1,
+      "totalFilesSize" : "241 B",
+      "indexingSpeed" : "12.61 kB/s"
+    }, {
+      "indexId" : "ant-imports",
+      "partOfTotalIndexingTime" : "< 1%",
+      "totalNumberOfFiles" : 2,
+      "totalFilesSize" : "441 B",
+      "indexingSpeed" : "445.5 kB/s"
+    }, {
+      "indexId" : "IdeaPluginRegistrationIndex",
+      "partOfTotalIndexingTime" : "< 1%",
+      "totalNumberOfFiles" : 2,
+      "totalFilesSize" : "441 B",
+      "indexingSpeed" : "2.91 MB/s"
+    }, {
+      "indexId" : "xmlProperties",
+      "partOfTotalIndexingTime" : "< 1%",
+      "totalNumberOfFiles" : 2,
+      "totalFilesSize" : "441 B",
+      "indexingSpeed" : "3.01 MB/s"
+    }, {
+      "indexId" : "RelaxSymbolIndex",
+      "partOfTotalIndexingTime" : "< 1%",
+      "totalNumberOfFiles" : 2,
+      "totalFilesSize" : "441 B",
+      "indexingSpeed" : "3.11 MB/s"
+    }, {
+      "indexId" : "XsltSymbolIndex",
+      "partOfTotalIndexingTime" : "< 1%",
+      "totalNumberOfFiles" : 2,
+      "totalFilesSize" : "441 B",
+      "indexingSpeed" : "4.47 MB/s"
+    }, {
+      "indexId" : "PluginIdModuleIndex",
+      "partOfTotalIndexingTime" : "< 1%",
+      "totalNumberOfFiles" : 2,
+      "totalFilesSize" : "441 B",
+      "indexingSpeed" : "16.04 MB/s"
+    }, {
+      "indexId" : "PluginIdDependenciesIndex",
+      "partOfTotalIndexingTime" : "< 1%",
+      "totalNumberOfFiles" : 2,
+      "totalFilesSize" : "441 B",
+      "indexingSpeed" : "18.61 MB/s"
+    }, {
+      "indexId" : "devkit.ExtensionPointIndex",
+      "partOfTotalIndexingTime" : "< 1%",
+      "totalNumberOfFiles" : 2,
+      "totalFilesSize" : "441 B",
+      "indexingSpeed" : "19.69 MB/s"
+    } ],
+    "fileProviderStatistics" : [ {
+      "providerName" : "Module 'Test'",
+      "totalNumberOfFiles" : 5,
+      "totalIndexingTime" : "621 ms",
+      "statsPerFileType" : [ {
+        "fileType" : "XML",
+        "numberOfFiles" : 2,
+        "totalFilesSize" : "441 B",
+        "partOfTotalIndexingTime" : "39.9%",
+        "partOfTotalContentLoadingTime" : "44.5%"
+      }, {
+        "fileType" : "textmate",
+        "numberOfFiles" : 1,
+        "totalFilesSize" : "3 B",
+        "partOfTotalIndexingTime" : "30.8%",
+        "partOfTotalContentLoadingTime" : "2.0%"
+      }, {
+        "fileType" : "HTML",
+        "numberOfFiles" : 1,
+        "totalFilesSize" : "241 B",
+        "partOfTotalIndexingTime" : "21.5%",
+        "partOfTotalContentLoadingTime" : "53.3%"
+      }, {
+        "fileType" : "JSP",
+        "numberOfFiles" : 1,
+        "totalFilesSize" : "381 B",
+        "partOfTotalIndexingTime" : "7.7%",
+        "partOfTotalContentLoadingTime" : "< 1%"
+      } ],
+      "statsPerIndexer" : [ {
+        "indexId" : "Stubs",
+        "partOfTotalIndexingTime" : "37.8%"
+      }, {
+        "indexId" : "TodoIndex",
+        "partOfTotalIndexingTime" : "28.2%"
+      }, {
+        "indexId" : "IdIndex",
+        "partOfTotalIndexingTime" : "9.7%"
+      }, {
+        "indexId" : "Trigram.Index",
+        "partOfTotalIndexingTime" : "9.4%"
+      }, {
+        "indexId" : "DomFileIndex",
+        "partOfTotalIndexingTime" : "4.6%"
+      }, {
+        "indexId" : "FrameworkDetectionIndex",
+        "partOfTotalIndexingTime" : "3.6%"
+      }, {
+        "indexId" : "fileIncludes",
+        "partOfTotalIndexingTime" : "3.2%"
+      }, {
+        "indexId" : "html5.custom.attributes.index",
+        "partOfTotalIndexingTime" : "3.2%"
+      } ],
+      "fastIndexers" : [ "IdeaPluginRegistrationIndex", "PluginIdDependenciesIndex", "PluginIdModuleIndex", "RelaxSymbolIndex", "XsltSymbolIndex", "ant-imports", "devkit.ExtensionPointIndex", "xmlProperties" ]
+    } ]
+  }
+}

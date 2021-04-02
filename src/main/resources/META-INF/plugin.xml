@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>org.example.Translation</id>
+    <name>Translation</name>
+    <vendor email="1471720721@qq.com" url="http://www.mycompany.com">MyCompany</vendor>
+
+    <description><![CDATA[
+    This plugin can translate Chinese into English.通过翻译插件提高源码阅读和编码的效率<br>
+    <em>Translate</em>
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="Translation.ID" class="com.mycompany.ZhToEn" text="Input" description="选择文本以翻译：">
+            <add-to-group group-id="EditMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="alt T"/>
+        </action>
+    </actions>
+</idea-plugin>

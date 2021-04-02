@@ -1,0 +1,13 @@
+02/04 22:01:09 INFO  com.intellij.internal.statistic.uploader.ExternalDataCollectorLogger - Process started with '--ide-token C:\android\Project\Translation\build\idea-sandbox\system\token --recorder FUS --files C:\android\Project\Translation\build\idea-sandbox\system\event-log-data\logs\FUS\42e3-4502-85f0-63e04275b67a-202.7660.26-release.log --device 1010201d3f165b5-130b-48e9-867a-f6894ba09b4e --bucket 155 --url https://resources.jetbrains.com/storage/fus/config/v3/%s/%s.json --product IC --product-version 2020.2.3 --user-agent IntelliJ IDEA/202.7660.26'
+02/04 22:01:09 INFO  com.intellij.internal.statistic.uploader.events.ExternalEventsLogger - 1617372069337 STARTED
+02/04 22:01:09 INFO  com.intellij.internal.statistic.uploader.ExternalDataCollectorLogger - IDE token file: C:\android\Project\Translation\build\idea-sandbox\system\token
+02/04 22:01:09 INFO  com.intellij.internal.statistic.uploader.ExternalDataCollectorLogger - Start uploading...
+02/04 22:01:09 INFO  com.intellij.internal.statistic.uploader.ExternalDataCollectorLogger - {url:https://resources.jetbrains.com/storage/fus/config/v3/%s/%s.json, product:IC, userAgent:IntelliJ IDEA/202.7660.26(External), internal:false, isTest:false}
+02/04 22:01:09 INFO  com.intellij.internal.statistic.uploader.ExternalDataCollectorLogger - {recorder:FUS, files:C:\android\Project\Translation\build\idea-sandbox\system\event-log-data\logs\FUS\42e3-4502-85f0-63e04275b67a-202.7660.26-release.log}
+02/04 22:01:09 INFO  com.intellij.internal.statistic.uploader.ExternalDataCollectorLogger - {device:1010201d3f165b5-130b-48e9-867a-f6894ba09b4e, bucket:155}
+02/04 22:01:13 TRACE com.intellij.internal.statistic.uploader.ExternalDataCollectorLogger - 42e3-4502-85f0-63e04275b67a-202.7660.26-release.log-> Cannot upload event log, record list is empty
+02/04 22:01:13 TRACE com.intellij.internal.statistic.uploader.ExternalDataCollectorLogger - Removed sent log: 42e3-4502-85f0-63e04275b67a-202.7660.26-release.log
+02/04 22:01:13 INFO  com.intellij.internal.statistic.uploader.events.ExternalEventsLogger - 1617372073617 SEND 0 1 1 []
+02/04 22:01:13 INFO  com.intellij.internal.statistic.uploader.events.ExternalEventsLogger - 1617372073619 FINISHED SENT_WITH_ERRORS
+02/04 22:01:13 TRACE com.intellij.internal.statistic.uploader.ExternalDataCollectorLogger - Uploading finished with SENT_WITH_ERRORS
+02/04 22:01:13 TRACE com.intellij.internal.statistic.uploader.ExternalDataCollectorLogger - Uploaded 0 out of 1 files.

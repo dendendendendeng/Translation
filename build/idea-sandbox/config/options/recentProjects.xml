@@ -1,0 +1,38 @@
+<application>
+  <component name="RecentProjectsManager">
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/IdeaProjects/Test">
+          <value>
+            <RecentProjectMetaInfo projectWorkspaceId="1q9llmArHZqAtULC0dKxfu7EJAF">
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IC-202.7660.26" />
+              <option name="buildTimestamp" value="1601973138665" />
+              <option name="productionCode" value="IC" />
+              <option name="projectOpenTimestamp" value="1616846510174" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/IdeaProjects/TestPlugin">
+          <value>
+            <RecentProjectMetaInfo opened="true" projectWorkspaceId="1pk6G6n95tHhvcrDDcscmF0kFNB">
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IC-202.7660.26" />
+              <option name="buildTimestamp" value="1601973122637" />
+              <frame x="10" y="20" width="1340" height="688" extendedState="6" />
+              <option name="productionCode" value="IC" />
+              <option name="projectOpenTimestamp" value="1617372033568" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="lastProjectLocation" value="$USER_HOME$/IdeaProjects" />
+    <option name="recentPaths">
+      <list>
+        <option value="$USER_HOME$/IdeaProjects/TestPlugin" />
+        <option value="$USER_HOME$/IdeaProjects/Test" />
+      </list>
+    </option>
+  </component>
+</application>
