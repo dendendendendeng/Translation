@@ -1,6 +1,6 @@
 <application>
   <component name="EventLogWhitelist">
-    <update recorder-id="FUS" last-modified="1616792493000" />
+    <update recorder-id="FUS" last-modified="1617301149000" />
   </component>
   <component name="FeatureUsageStatistics" first-run="1615715114017" have-been-shown="false" show-in-other="true" show-in-compilation="true">
     <feature id="editing.completion.smarttype.afternew" count="0" last-shown="0" last-used="0" shown-count="0" />
@@ -58,7 +58,7 @@
     <feature id="editing.completion.postfix" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="refactoring.introduceVariable.incompleteStatement" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="dir.diff" count="0" last-shown="0" last-used="0" shown-count="0" />
-    <feature id="editing.select.word" count="6" last-shown="0" last-used="1617372058723" shown-count="0" />
+    <feature id="editing.select.word" count="8" last-shown="0" last-used="1617550381742" shown-count="0" />
     <feature id="editing.add.carets.using.double.ctrl" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="codeassists.quickjavadoc.lookup" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="ui.scheme.quickswitch" count="0" last-shown="0" last-used="0" shown-count="0" />
@@ -90,6 +90,6 @@
     </fixesStatsTag>
   </component>
   <component name="UsagesStatistic" show-notification="false">
-    <system-event-id recorder="FUS" id="13963" />
+    <system-event-id recorder="FUS" id="15803" />
   </component>
 </application>

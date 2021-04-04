@@ -421,12 +421,18 @@
       "event_id" : [ "{enum#__event_id}" ],
       "event_data" : {
         "client_id" : [ "{regexp#hash}" ],
+        "connectionType" : [ "{enum:ws_relay|p2p_quic|direct_tcp|unknown}" ],
+        "disconnectsCount" : [ "{regexp#integer}" ],
         "id" : [ "{regexp#integer}" ],
+        "participantsMax" : [ "{regexp#integer}" ],
+        "participantsSize" : [ "{enum:OneOnOne|Group}" ],
+        "sessionDurationMinutes" : [ "{regexp#integer}" ],
+        "sessionDurationType" : [ "{enum:Below15mins|Below25mins|Below1hr|Above1hr}" ],
         "sessionId" : [ "{regexp#hash}" ],
         "telephonyEnabled" : [ "{enum#boolean}" ]
       },
       "enums" : {
-        "__event_id" : [ "connected", "finished", "onCircleLeftClickStart", "onCircleLeftClickStop", "onCircleRightClick", "onEditorFollowingLabelResume", "onEditorFollowingLabelStop", "onEditorFullSyncLabelStop", "onReconnection", "sessionCreated", "sessionTerminated" ]
+        "__event_id" : [ "connected", "finished", "onCircleLeftClickStart", "onCircleLeftClickStop", "onCircleRightClick", "onEditorFollowingLabelResume", "onEditorFollowingLabelStop", "onEditorFullSyncLabelStop", "onReconnection", "sessionCreated", "sessionTerminated", "onReconnectionFailed", "sessionFinished", "sessionStarted", "sessionExpired", "onConnectionFailed" ]
       }
     }
   }, {
@@ -4080,5 +4086,5 @@
       "version" : "Unknown|unknown.format|unknown|UNKNOWN|((\\d+\\.?)*\\d+)"
     }
   },
-  "version" : "1790"
+  "version" : "1794"
 }

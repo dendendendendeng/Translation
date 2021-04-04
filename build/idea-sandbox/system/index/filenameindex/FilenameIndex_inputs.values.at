@@ -15,4 +15,4 @@ ha-api.jar
 policy.jarstax-ex.jarjaxb-api.jarjaxb-xjc.jarjaxws-rt.jarmimepull.jarsaaj-api.jarjaxb-impl.jarjaxws-api.jarsaaj-impl.jarstax2-api.jarFastInoset.jarjsr181-api.jarjaxws-tools.jarstreambuffer.jargmbal-api-only.jarmanagement-api.jarjavax.annotation.jarwoodstox-core-asl.jarsrcwebjava
 WEB-INF
 web.xmlsun-jaxws.xml	index.jsp.ideamisc.xml	artifactsTest_war_exploded.xmlmodules.xmlworkspace.xmlTest.iml	Test.html
-.gitignore  
+.gitignore  pluginsXMLIds.json.etagpluginsXMLIds.jsonencodings.xml encodings.xml encodings.xml
