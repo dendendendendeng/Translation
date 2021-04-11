@@ -2,7 +2,7 @@
   <component name="ActionsLocalSummary">
     <data>
       <entry key="EditorBackSpace">
-        <ActionSummary times="19" last="1615911855006" />
+        <ActionSummary times="43" last="1618152310205" />
       </entry>
       <entry key="EditorChooseLookupItem">
         <ActionSummary times="2" last="1615714783320" />
@@ -11,13 +11,16 @@
         <ActionSummary times="3" last="1616082421077" />
       </entry>
       <entry key="EditorEnter">
-        <ActionSummary times="2" last="1615911846225" />
+        <ActionSummary times="13" last="1618141347938" />
+      </entry>
+      <entry key="EditorLeft">
+        <ActionSummary times="5" last="1618141024012" />
       </entry>
       <entry key="EditorRight">
-        <ActionSummary times="3" last="1615714791198" />
+        <ActionSummary times="4" last="1618141467315" />
       </entry>
       <entry key="List-selectNextRow">
-        <ActionSummary times="7" last="1617550291262" />
+        <ActionSummary times="8" last="1618129311404" />
       </entry>
       <entry key="List-selectPreviousRow">
         <ActionSummary times="7" last="1617550292018" />
@@ -29,7 +32,7 @@
         <ActionSummary times="1" last="1616499793765" />
       </entry>
       <entry key="ShowSettings">
-        <ActionSummary times="5" last="1617550493811" />
+        <ActionSummary times="7" last="1618155981915" />
       </entry>
       <entry key="WelcomeScreen.CreateNewProject">
         <ActionSummary times="1" last="1615714154589" />
@@ -38,7 +41,10 @@
         <ActionSummary times="2" last="1617528514690" />
       </entry>
       <entry key="com.intellij.openapi.vfs.encoding.ChooseFileEncodingAction$1">
-        <ActionSummary times="5" last="1617550375426" />
+        <ActionSummary times="7" last="1618155991672" />
+      </entry>
+      <entry key="com.intellij.openapi.vfs.encoding.ChooseFileEncodingAction$3">
+        <ActionSummary times="1" last="1618155995114" />
       </entry>
     </data>
   </component>

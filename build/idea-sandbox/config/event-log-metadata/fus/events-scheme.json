@@ -376,6 +376,22 @@
       }
     }
   }, {
+    "id" : "coverage",
+    "builds" : [ ],
+    "versions" : [ {
+      "from" : "1"
+    } ],
+    "rules" : {
+      "event_id" : [ "{enum:html.generated|report.loaded|started}" ],
+      "event_data" : {
+        "duration_ms" : [ "{regexp#integer}" ],
+        "excludes" : [ "{regexp#integer}" ],
+        "generation_ms" : [ "{regexp#integer}" ],
+        "includes" : [ "{regexp#integer}" ],
+        "runner" : [ "{enum:emma|jacoco|idea}", "{enum:IJCSampling|IJCTracing|IJCTracingTestTracking|JaCoCo|Emma}" ]
+      }
+    }
+  }, {
     "id" : "create.directory.dialog",
     "builds" : [ ],
     "versions" : [ {
@@ -817,6 +833,22 @@
     } ],
     "rules" : {
       "event_id" : [ "{enum:statistics.test.mode.enabled|team.city.version.detected}" ]
+    }
+  }, {
+    "id" : "external.project.task",
+    "builds" : [ ],
+    "versions" : [ {
+      "from" : "1"
+    } ],
+    "rules" : {
+      "event_id" : [ "{enum:finished|started}" ],
+      "event_data" : {
+        "duration_ms" : [ "{regexp#integer}" ],
+        "ide_activity_id" : [ "{regexp#integer}" ],
+        "system_id" : [ "{enum#build_tools}" ],
+        "target" : [ "{util#run_target}" ],
+        "task_id" : [ "{enum:ResolveProject|ExecuteTask}" ]
+      }
     }
   }, {
     "id" : "extract.method.inplace",
@@ -2181,7 +2213,7 @@
         "display_type" : [ "{enum:BALLOON|STICKY_BALLOON|TOOL_WINDOW}", "{enum:NONE}" ],
         "id" : [ "{regexp:\\d+.\\d+}" ],
         "is_expandable" : [ "{enum#boolean}" ],
-        "notification_group" : [ "{util#notification_group}", "{enum:JavaScript_Debugger_Console_URL_Starter}" ],
+        "notification_group" : [ "{util#notification_group}", "{enum:JavaScript_Debugger_Console_URL_Starter|New_JVM_Backend|New JVM Backend}" ],
         "notification_place" : [ "{enum:BALLOON|EVENT_LOG}", "{enum:TOOL_WINDOW}" ],
         "parent" : [ "{util#class_name}" ],
         "plugin" : [ "{util#plugin}" ],
@@ -2940,7 +2972,7 @@
       "from" : "191.4811"
     } ],
     "rules" : {
-      "event_id" : [ "run.dashboard.{enum#state}", "{enum:run.dashboard|third.party}", "{util#run_config}", "{enum:run.dashboard|added.run.configuration}" ],
+      "event_id" : [ "run.dashboard.{enum#state}", "{enum:run.dashboard|third.party}", "{util#run_config}", "{enum:run.dashboard|added.run.configuration|removed.run.configuration}" ],
       "event_data" : {
         "enabled" : [ "{enum#boolean}" ],
         "factory" : [ "{util#run_config_factory}" ],
@@ -4086,5 +4118,5 @@
       "version" : "Unknown|unknown.format|unknown|UNKNOWN|((\\d+\\.?)*\\d+)"
     }
   },
-  "version" : "1794"
+  "version" : "1798"
 }

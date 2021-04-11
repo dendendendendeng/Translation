@@ -2,8 +2,9 @@ package com.mycompany.Util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
-public class SHAUtil {
+public class Utils {
     /**
      * 传入文本内容，返回 SHA-256 串
      *
@@ -72,5 +73,19 @@ public class SHAUtil {
         }
 
         return strResult;
+    }
+
+
+    public static String[] stringListToStringArray(List<String> list){
+        if(list == null) return null;
+        int length = list.size();
+        String[] array = new String[length];
+        for(int i=0;i<length;i++) {
+            String[] items = list.get(i).split(" ");
+            StringBuffer buffer = new StringBuffer();
+            for(String string:items) buffer.append(string);
+            array[i] = buffer.toString();
+        }
+        return array;
     }
 }
