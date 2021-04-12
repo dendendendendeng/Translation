@@ -7,12 +7,12 @@ import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.ui.Messages;
-import com.intellij.openapi.ui.popup.Balloon;
-import com.intellij.openapi.ui.popup.JBPopupFactory;
+import com.intellij.openapi.ui.popup.*;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.components.JBList;
 import com.mycompany.Util.Utils;
 import org.apache.http.util.TextUtils;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -40,12 +40,12 @@ public class ZhToEn extends AnAction {
         SelectionModel model = mEditor.getSelectionModel();
         String selectedText = null;
         try {
-            selectedText = new String(model.getSelectedText().getBytes("gbk"),"utf-8");
-            selectedText = model.getSelectedText();
+            System.out.println(new String(model.getSelectedText().getBytes("utf-8"),"utf-8"));
+            selectedText = new String(model.getSelectedText().getBytes("utf-8"),"utf-8");
             if(model.getSelectedText().matches("[\u4E00-\u9FA5]+"))
                 isZhToEn = true;
             else isZhToEn = false;
-            System.out.println("初始的selectedText字节数为:"+selectedText.getBytes().length);
+            System.out.println("初始的selectedText字节数为:"+selectedText.getBytes("utf-8").length+selectedText);
         } catch (UnsupportedEncodingException unsupportedEncodingException) {
             unsupportedEncodingException.printStackTrace();
         }
@@ -106,7 +106,7 @@ public class ZhToEn extends AnAction {
             connection.setDoInput(true);
 
             out =new PrintWriter(connection.getOutputStream());
-            out.print(new String(buffer.toString().getBytes()));
+            out.print(new String(buffer.toString().getBytes("utf-8"),"utf-8"));
             out.flush();
             in = new BufferedReader(new InputStreamReader(connection.getInputStream(),"UTF-8"));
             String line ;
@@ -133,13 +133,36 @@ public class ZhToEn extends AnAction {
                 YouDaoResult youDaoResult = JSON.parseObject(result, YouDaoResult.class);
                 if (isZhToEn){
                     String[] translationArray = stringListToStringArray(youDaoResult.translation);
-                    if(translationArray != null){
-                        zhToEn(translationArray);
-                        propertiesComponent.setValues(youDaoResult.query,translationArray);//保存查询后的英文数组
-                        System.out.println(result);
-                    }else {
-                        Messages.showMessageDialog(new String("请求数据失败 结果为空".getBytes(),"utf-8"), "Translation", Messages.getInformationIcon());
-                    }
+
+                    JBList<String> list = new JBList<>();
+                    list.setListData(translationArray);
+                    list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);// 允许可间断的多选// 添加选项选中状态被改变的监听器
+                    list.addListSelectionListener(new ListSelectionListener() {
+                        @Override
+                        public void valueChanged(ListSelectionEvent e) {
+                            int[] indices = list.getSelectedIndices();// 获取所有被选中的选项索引
+                            ListModel<String> listModel = list.getModel();// 获取选项数据的 ListModel
+                            // 输出选中的选项
+                            for (int index : indices) {
+                                //todo 获取最后一个选中的翻译结果，填回源代码
+                                selectResult = listModel.getElementAt(index);
+                                System.out.println("选中: " + index + " = " + listModel.getElementAt(index));
+                            }
+                            System.out.println();
+                        }
+                    });
+                    list.setSelectedIndex(0);// 设置默认选中项
+                    JBPopupFactory.getInstance().createComponentPopupBuilder(list,null).createPopup().showInBestPositionFor(e.getDataContext());
+//                    ListPopup listPopup = (ListPopup) JBPopupFactory.getInstance().createPopupChooserBuilder(youDaoResult.translation);
+//                    listPopup.showInBestPositionFor(e.getDataContext());
+
+//                    if(translationArray != null){
+//                        zhToEn(translationArray);
+//                        propertiesComponent.setValues(youDaoResult.query,translationArray);//保存查询后的英文数组
+//                        System.out.println(result);
+//                    }else {
+//                        Messages.showMessageDialog(new String("请求数据失败 结果为空".getBytes(),"utf-8"), "Translation", Messages.getInformationIcon());
+//                    }
                 }else{
                     enToZh(selectedText,youDaoResult,mEditor);
                 }
