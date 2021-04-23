@@ -1,5 +1,6 @@
 <application>
   <component name="PropertiesComponent">
+    <property name=" static initializer" value="选中的文本为: static initializer&#10;&#10;基本翻译为：&#10;静态初始化器&#10;&#10;网络释义为：&#10;static initializer:静态初始化器,静态初始器,静态初始者,静态初始化块&#10;" />
     <property name="??" value="??" />
     <property name="????" value="????" />
     <property name="??????" value="??" />
@@ -7,22 +8,41 @@
     <property name="???????????????" value="???????????????" />
     <property name="System" value="选中的文本为:System&#10;&#10;基本翻译为：&#10;系统&#10;&#10;网络释义为：&#10;System:系统,体系,制度,体制&#10;operating system:操作系统,作业系统,控制系统,作系统&#10;file system:文件系统,档案系统,文件体系,文件编制&#10;" />
     <property name="UITheme.relaunch" value="true" />
+    <property name="apple apple " value="选中的文本为:apple apple &#10;&#10;基本翻译为：&#10;苹果苹果&#10;&#10;网络释义为：&#10;Apple apple:苹果,正苹优果苹果&#10;apple apple id:邮箱地址,苹果&#10;apple apple on the tree:苹果苹果在树,苹果在树上的苹果&#10;" />
+    <property name="apple apple apple" value="选中的文本为:apple apple apple&#10;&#10;基本翻译为：&#10;苹果苹果苹果&#10;&#10;网络释义为：&#10;Apple Apple Apple Apple:啊呜啊呜啊呜&#10;" />
     <property name="com.intellij.openapi.roots.ui.configuration.TabbedModuleEditor.selectedEditor" value="Sources" />
     <property name="defaultJdkConfigured" value="true" />
     <property name="file.chooser.recent.files" value="$USER_HOME$/IdeaProjects/Test" />
     <property name="file.gist.reindex.count" value="4" />
+    <property name="he is a good student" value="选中的文本为:he is a good student&#10;&#10;基本翻译为：&#10;他是一个好学生&#10;" />
+    <property name="he is a lin student" value="选中的文本为:he is a lin student&#10;&#10;基本翻译为：&#10;他是林学院的学生&#10;" />
+    <property name="i am a good student" value="选中的文本为:i am a good student&#10;&#10;基本翻译为：&#10;我是一个好学生&#10;" />
+    <property name="i am a student" value="选中的文本为:i am a student&#10;&#10;基本翻译为：&#10;我是一个学生&#10;&#10;网络释义为：&#10;I am a student from:几年级几班&#10;I am a student Assistant:我是一名学生处助理&#10;I am a college student:我是一名大学生,我是一名大专生,我是一名在校学生,我是大学生&#10;" />
     <property name="ide.memory.adjusted" value="true" />
+    <property name="initializer" value="选中的文本为:initializer&#10;&#10;基本翻译为：&#10;初始化器&#10;&#10;网络释义为：&#10;initializer:初始化程序,初始设定式,初始化器,构造器&#10;constructor initializer:构造函数初始值设定项,构造函数初始化器&#10;class initializer:类初始值设定项,类别初始设定式,类初始设置式,类别初始器&#10;" />
     <property name="installed.kotlin.plugin.version" value="1.3.72-release-IJ2020.1-6" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="lastSeenTip" value="neue-LineEndings.html" />
     <property name="lastTimeTipsWereShown" value="1615714649607" />
+    <property name="method" value="选中的文本为:method&#10;&#10;基本翻译为：&#10;方法&#10;&#10;网络释义为：&#10;method:方法,方法,办法,方式&#10;Teaching method:教学方法,教学手段&#10;Kjeldahl method:凯氏定氮法,基耶达尔法,凯氏法,氮测定法&#10;" />
     <property name="packagesearch.endpoint.url.fulltext" value="https://package-search.services.jetbrains.com/api/search/idea/fulltext" />
     <property name="packagesearch.endpoint.url.suggest" value="https://package-search.services.jetbrains.com/api/search/idea/suggest" />
-    <property name="packagesearch.status.updated.ts" value="1618129212946" />
+    <property name="packagesearch.status.updated.ts" value="1619005426780" />
     <property name="project.wizard.group" value="JAVA_MODULE" />
+    <property name="public" value="选中的文本为:public&#10;&#10;基本翻译为：&#10;公共&#10;&#10;网络释义为：&#10;Public:公共,公众的,公用,公开的&#10;Notary Public:公证人,公证员,公证,公正机关&#10;public domain:公共领域,公共域&#10;" />
     <property name="seenTips" value="neue-LineEndings.html" />
+    <property name="she is a lin student" value="选中的文本为:she is a lin student&#10;&#10;基本翻译为：&#10;她是林学院的学生&#10;" />
     <property name="static" value="选中的文本为:static&#10;&#10;基本翻译为：&#10;静态&#10;&#10;网络释义为：&#10;static:静态的,静态,静止的&#10;static pressure:静压,静压力,静水压力&#10;static load:静负荷,静载荷,静荷载,静态负载&#10;" />
+    <property name="static initializer" value="选中的文本为:static initializer&#10;&#10;基本翻译为：&#10;静态初始化器&#10;&#10;网络释义为：&#10;static initializer:静态初始化器,静态初始器,静态初始者,静态初始化块&#10;" />
     <property name="tasks.pass.word.conversion.enforced" value="true" />
+    <property name="乳酸菌" value="Lacticacidbacteria" />
+    <property name="地铁站" value="Thesubwaystation" />
+    <property name="家" value="home" />
+    <property name="房子" value="house" />
+    <property name="林桂潜" value="LinGuiqian" />
+    <property name="苹 果" value="apple" />
     <property name="苹果" value="apple" />
+    <property name="薄荷糖" value="mint" />
+    <property name="雪梨" value="Snowpear" />
   </component>
 </application>

@@ -1,23 +1,38 @@
 <application>
   <component name="ActionsLocalSummary">
     <data>
+      <entry key="$Undo">
+        <ActionSummary times="10" last="1619091619498" />
+      </entry>
       <entry key="EditorBackSpace">
-        <ActionSummary times="43" last="1618152310205" />
+        <ActionSummary times="81" last="1619090395013" />
       </entry>
       <entry key="EditorChooseLookupItem">
         <ActionSummary times="2" last="1615714783320" />
       </entry>
       <entry key="EditorCopy">
-        <ActionSummary times="3" last="1616082421077" />
+        <ActionSummary times="5" last="1618325845610" />
+      </entry>
+      <entry key="EditorDown">
+        <ActionSummary times="14" last="1619091381182" />
       </entry>
       <entry key="EditorEnter">
-        <ActionSummary times="13" last="1618141347938" />
+        <ActionSummary times="19" last="1619090163173" />
       </entry>
       <entry key="EditorLeft">
-        <ActionSummary times="5" last="1618141024012" />
+        <ActionSummary times="7" last="1618326078512" />
+      </entry>
+      <entry key="EditorPaste">
+        <ActionSummary times="3" last="1618325854593" />
       </entry>
       <entry key="EditorRight">
-        <ActionSummary times="4" last="1618141467315" />
+        <ActionSummary times="30" last="1618326087698" />
+      </entry>
+      <entry key="EditorUp">
+        <ActionSummary times="12" last="1619091381941" />
+      </entry>
+      <entry key="GotoDeclaration">
+        <ActionSummary times="1" last="1618323040645" />
       </entry>
       <entry key="List-selectNextRow">
         <ActionSummary times="8" last="1618129311404" />
@@ -30,6 +45,9 @@
       </entry>
       <entry key="OpenFile">
         <ActionSummary times="1" last="1616499793765" />
+      </entry>
+      <entry key="RunAnything">
+        <ActionSummary times="2" last="1619090412224" />
       </entry>
       <entry key="ShowSettings">
         <ActionSummary times="8" last="1618237530942" />

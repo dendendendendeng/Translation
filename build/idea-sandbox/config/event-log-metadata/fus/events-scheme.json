@@ -1082,7 +1082,7 @@
       },
       "enums" : {
         "__event_id" : [ "repo.sync", "update.type", "save.policy", "use.builtin.ssh", "push.autoupdate", "push.update.all.roots", "cherrypick.autocommit", "warn.about.crlf", "warn.about.detached", "executable", "repository", "showGitBranchesInLog", "updateBranchesFilterInLogOnSelection", "staging.area.enabled", "commit_template" ],
-        "__type" : [ "UNIX", "MSYS", "CYGWIN", "UNDEFINED", "NULL" ]
+        "__type" : [ "UNIX", "MSYS", "CYGWIN", "UNDEFINED", "NULL", "WSL1", "WSL2" ]
       }
     }
   }, {
@@ -1475,6 +1475,15 @@
       "enums" : {
         "setting" : [ "REBUILD_ON_DEPENDENCY_CHANGE", "DISPLAY_NOTIFICATION_POPUP", "PARALLEL_COMPILATION", "COMPILE_AFFECTED_UNLOADED_MODULES_BEFORE_COMMIT", "MAKE_PROJECT_ON_SAVE", "AUTO_SHOW_ERRORS_IN_EDITOR", "CLEAR_OUTPUT_DIRECTORY" ]
       }
+    }
+  }, {
+    "id" : "java.debugger.actions",
+    "builds" : [ ],
+    "versions" : [ {
+      "from" : "1"
+    } ],
+    "rules" : {
+      "event_id" : [ "{enum:attach.inlay|create.exception.breakpoint.inlay}" ]
     }
   }, {
     "id" : "java.extract.method",
@@ -2546,6 +2555,9 @@
       "event_data" : {
         "duration_ms" : [ "{regexp#integer}" ],
         "ide_activity_id" : [ "{regexp#integer}" ],
+        "plugin" : [ "{util#plugin}" ],
+        "plugin_type" : [ "{util#plugin_type}" ],
+        "plugin_version" : [ "{util#plugin_version}" ],
         "system_id" : [ "{enum#build_tools}" ],
         "task_class" : [ "{util#class_name}" ]
       }
@@ -2893,6 +2905,7 @@
         "duration_ms" : [ "{regexp#integer}" ],
         "executor" : [ "{util#run_config_executor}" ],
         "factory" : [ "{util#run_config_factory}" ],
+        "finish_type" : [ "{enum:SUCCESS|FAILED}" ],
         "id" : [ "{util#run_config_id}" ],
         "ide_activity_id" : [ "{regexp#integer}" ],
         "plugin" : [ "{util#plugin}" ],
@@ -3381,6 +3394,18 @@
       }
     }
   }, {
+    "id" : "tms.statistics",
+    "builds" : [ ],
+    "versions" : [ {
+      "from" : "1"
+    } ],
+    "rules" : {
+      "event_id" : [ "{enum:tms.content_displayed}" ],
+      "event_data" : {
+        "tms_service_id" : [ "{enum:Gauge|Local|TestRail}" ]
+      }
+    }
+  }, {
     "id" : "toolbar",
     "builds" : [ ],
     "versions" : [ {
@@ -3426,7 +3451,7 @@
       "event_id" : [ "{util#toolwindow}", "{enum:activated|shown|hidden}" ],
       "event_data" : {
         "Location" : [ "{enum#__Location}" ],
-        "Source" : [ "{enum:StripeButton|ToolWindowHeader|ToolWindowHeaderAltClick|Content|Switcher|SwitcherSearch|ToolWindowsWidget|RemoveStripeButtonAction|HideOnShowOther|HideSide|CloseFromSwitcher|ActivateActionMenu|ActivateActionKeyboardShortcut|ActivateActionGotoAction|ActivateActionOther|CloseAction|HideButton|HideToolWindowAction|HideSideWindowsAction|HideAllWindowsAction|JumpToLastWindowAction}", "{enum:ToolWindowSwitcher}", "{enum:SquareStripeButton}" ],
+        "Source" : [ "{enum:StripeButton|ToolWindowHeader|ToolWindowHeaderAltClick|Content|Switcher|SwitcherSearch|ToolWindowsWidget|RemoveStripeButtonAction|HideOnShowOther|HideSide|CloseFromSwitcher|ActivateActionMenu|ActivateActionKeyboardShortcut|ActivateActionGotoAction|ActivateActionOther|CloseAction|HideButton|HideToolWindowAction|HideSideWindowsAction|HideAllWindowsAction|JumpToLastWindowAction}", "{enum:ToolWindowSwitcher}", "{enum:SquareStripeButton}", "{enum:InspectionsWidget}" ],
         "ViewMode" : [ "{enum#__ViewMode}" ],
         "id" : [ "{util#toolwindow}" ],
         "plugin" : [ "{util#plugin}" ],
@@ -4118,5 +4143,5 @@
       "version" : "Unknown|unknown.format|unknown|UNKNOWN|((\\d+\\.?)*\\d+)"
     }
   },
-  "version" : "1798"
+  "version" : "1814"
 }
