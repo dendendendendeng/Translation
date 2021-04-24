@@ -6,6 +6,7 @@
     <property name="??????" value="??" />
     <property name="???????" value="??" />
     <property name="???????????????" value="???????????????" />
+    <property name="Snowpear" value="选中的文本为:Snowpear&#10;&#10;基本翻译为：&#10;Snowpear&#10;&#10;网络释义为：&#10;SNOWPEAR:雪花梨&#10;snowpear tea:雪梨茶&#10;" />
     <property name="System" value="选中的文本为:System&#10;&#10;基本翻译为：&#10;系统&#10;&#10;网络释义为：&#10;System:系统,体系,制度,体制&#10;operating system:操作系统,作业系统,控制系统,作系统&#10;file system:文件系统,档案系统,文件体系,文件编制&#10;" />
     <property name="UITheme.relaunch" value="true" />
     <property name="apple" value="选中的文本为:apple&#10;&#10;基本翻译为：&#10;苹果&#10;&#10;网络释义为：&#10;Apple:苹果公司&#10;apple inc:苹果公司,美国苹果公司,苹果&#10;BIG APPLE:大苹果,纽约,大苹果城&#10;" />
@@ -40,6 +41,8 @@
     <property name="tasks.pass.word.conversion.enforced" value="true" />
     <property name="乳酸菌" value="Lacticacidbacteria" />
     <property name="你" value="you" />
+    <property name="你我他" value="选中的文本为:你我他&#10;&#10;基本翻译为：&#10;You and me he&#10;&#10;网络释义为：&#10;你我他:You He and,Ym,Zee and Co&#10;爱情你我他:Bachna Ae Haseeno,Me and You and Everyone We Know,All Over Me&#10;环保你我他:Environment&#10;" />
+    <property name="圣诞老人来送礼物" value="SantaClauscametodeliverpresents" />
     <property name="地铁站" value="Thesubwaystation" />
     <property name="家" value="home" />
     <property name="房子" value="house" />
