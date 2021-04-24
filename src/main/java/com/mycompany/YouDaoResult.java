@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class YouDaoResult extends Result{
+public class YouDaoResult{
     public String errorCode;
     public String query;
     public List<String> translation;
@@ -16,21 +16,6 @@ public class YouDaoResult extends Result{
     public String tSpeakUrl;
     public String speakUrl;
     public List<String> returnPhrase;
-
-    @Override
-    public List<String> getTranslation() {
-        return translation;
-    }
-
-    @Override
-    public List<String> getBasicTranslation() {
-        return basic.explains;
-    }
-
-    @Override
-    public List<String> getWebTranslation() {
-        return null;
-    }
 }
 
 class WebPart{

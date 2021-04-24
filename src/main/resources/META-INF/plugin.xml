@@ -18,7 +18,7 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="Translation.ID" class="com.mycompany.ZhToEn" text="Input" description="选择文本以翻译：">
+        <action id="Translation.ID" class="com.mycompany.Replace" text="Input" description="选择文本以翻译：">
             <add-to-group group-id="EditMenu" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="alt T"/>
         </action>

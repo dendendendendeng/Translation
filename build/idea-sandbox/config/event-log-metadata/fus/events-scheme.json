@@ -55,6 +55,7 @@
         "context_menu" : [ "{enum#boolean}" ],
         "current_file" : [ "{util#current_file}" ],
         "dumb" : [ "{enum#boolean}" ],
+        "duration_ms" : [ "{regexp#integer}" ],
         "enable" : [ "{enum#boolean}" ],
         "input_event" : [ "{util#shortcut}" ],
         "lang" : [ "{util#lang}" ],
@@ -776,6 +777,20 @@
         "lang" : [ "{util#lang}" ],
         "plugin" : [ "{util#plugin}" ],
         "plugin_type" : [ "{util#plugin_type}" ]
+      }
+    }
+  }, {
+    "id" : "entry.points",
+    "builds" : [ ],
+    "versions" : [ {
+      "from" : "2"
+    } ],
+    "rules" : {
+      "event_id" : [ "{enum:additional_annotations|write_annotations|class_patterns}" ],
+      "event_data" : {
+        "fqn_used" : [ "{enum#boolean}" ],
+        "patterns_used" : [ "{enum#boolean}" ],
+        "used" : [ "{enum#boolean}" ]
       }
     }
   }, {
@@ -2905,7 +2920,7 @@
         "duration_ms" : [ "{regexp#integer}" ],
         "executor" : [ "{util#run_config_executor}" ],
         "factory" : [ "{util#run_config_factory}" ],
-        "finish_type" : [ "{enum:SUCCESS|FAILED}" ],
+        "finish_type" : [ "{enum:SUCCESS|FAILED}", "{enum:FAILED_TO_START|UNKNOWN}" ],
         "id" : [ "{util#run_config_id}" ],
         "ide_activity_id" : [ "{regexp#integer}" ],
         "plugin" : [ "{util#plugin}" ],
@@ -3361,6 +3376,8 @@
         "bit" : [ "{regexp#integer}" ],
         "enabled" : [ "{enum#boolean}" ],
         "gigabytes" : [ "{regexp#integer}" ],
+        "index_partition_free" : [ "{regexp#integer}" ],
+        "index_partition_size" : [ "{regexp#integer}" ],
         "name" : [ "{enum#gc}", "{enum#jvm_option}" ],
         "value" : [ "{regexp#integer}" ],
         "vendor" : [ "{enum#jvm_vendor}" ],
@@ -3369,7 +3386,7 @@
       "enums" : {
         "_" : [ "cores", "garbage.collector", "jvm", "jvm.bit", "jvm.option" ],
         "__arch" : [ "x86", "x86_64", "arm64", "other", "unknown" ],
-        "__event_id" : [ "cores", "garbage.collector", "jvm.option", "jvm", "debug.agent", "memory.size", "swap.size" ],
+        "__event_id" : [ "cores", "garbage.collector", "jvm.option", "jvm", "debug.agent", "memory.size", "swap.size", "disk.size" ],
         "gc" : [ "Shenandoah", "G1_Young_Generation", "G1_Old_Generation", "Copy", "MarkSweepCompact", "PS_MarkSweep", "PS_Scavenge", "ParNew", "ConcurrentMarkSweep" ],
         "jvm_option" : [ "Xmx", "Xms", "SoftRefLRUPolicyMSPerMB", "ReservedCodeCacheSize" ],
         "jvm_vendor" : [ "JetBrains", "Apple", "Oracle", "Sun", "IBM", "Azul", "Other" ]
@@ -4143,5 +4160,5 @@
       "version" : "Unknown|unknown.format|unknown|UNKNOWN|((\\d+\\.?)*\\d+)"
     }
   },
-  "version" : "1814"
+  "version" : "1818"
 }

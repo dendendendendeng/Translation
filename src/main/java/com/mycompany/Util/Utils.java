@@ -5,41 +5,23 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class Utils {
-    /**
-     * 传入文本内容，返回 SHA-256 串
-     *
-     * @param strText
-     * @return
-     */
+
+    //传入文本内容，返回 SHA-256 串
     public static String SHA256(final String strText) {
         return SHA(strText, "SHA-256");
     }
 
-    /**
-     * 传入文本内容，返回 SHA-512 串
-     *
-     * @param strText
-     * @return
-     */
+    //传入文本内容，返回 SHA-512 串
     public static String SHA512(final String strText) {
         return SHA(strText, "SHA-512");
     }
 
-    /**
-     * md5加密
-     * @param strText
-     * @return
-     */
+    //md5加密
     public static String SHAMD5(String strText) {
         return SHA(strText, "MD5");
     }
 
-    /**
-     * 字符串 SHA 加密
-     *
-     * @param strText
-     * @return
-     */
+    //字符串 SHA 加密
     private static String SHA(final String strText, final String strType) {
         // 返回值
         String strResult = null;
@@ -75,7 +57,7 @@ public class Utils {
         return strResult;
     }
 
-
+    //把list字符串转成字符串数组
     public static String[] stringListToStringArray(List<String> list){
         if(list == null) return null;
         int length = list.size();
@@ -87,5 +69,10 @@ public class Utils {
             array[i] = buffer.toString();
         }
         return array;
+    }
+
+    //判断字符串中是否包含中文字符
+    public static boolean isContainZh(String selectedString){
+        return selectedString.matches(".*[\u4E00-\u9FA5].*");
     }
 }
