@@ -2,7 +2,7 @@
   <component name="ActionsLocalSummary">
     <data>
       <entry key="$Undo">
-        <ActionSummary times="10" last="1619091619498" />
+        <ActionSummary times="11" last="1619245470618" />
       </entry>
       <entry key="EditorBackSpace">
         <ActionSummary times="81" last="1619090395013" />
@@ -63,6 +63,9 @@
       </entry>
       <entry key="com.intellij.openapi.vfs.encoding.ChooseFileEncodingAction$3">
         <ActionSummary times="1" last="1618155995114" />
+      </entry>
+      <entry key="tasks.goto">
+        <ActionSummary times="3" last="1619246557044" />
       </entry>
     </data>
   </component>

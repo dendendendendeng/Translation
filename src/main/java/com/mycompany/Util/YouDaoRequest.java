@@ -18,8 +18,6 @@ public class YouDaoRequest {
                 .post(builtFormBody(selectedString).build())//传递请求体
                 .build();
 
-        System.out.println("request.body()"+request.body());
-
         try {
             Response response = client.newCall(request).execute();
             jsonResult = response.body().string();

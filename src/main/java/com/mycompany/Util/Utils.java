@@ -105,4 +105,32 @@ public class Utils {
         }
         return builder.toString();
     }
+
+    public static String transformResultToHtmlString(YouDaoResult result){
+        StringBuilder builder = new StringBuilder();
+        builder.append("<html><body>");
+        builder.append("选中的文本为:");
+        builder.append(result.query);
+        builder.append("<br><br>基本翻译为：<br>");
+        if(result.translation == null) {
+            Messages.showMessageDialog("Translation字段为空", "Translation", Messages.getInformationIcon());
+            return "";
+        }
+        for (String item : result.translation) {
+            builder.append(item).append("<br>");
+        }
+        if (result.web != null) {
+            builder.append("<br>网络释义为：<br>");
+            for (WebPart part : result.web) {
+                builder.append(part.key).append(":");
+                for (int webIndex = 0; webIndex < part.value.size(); webIndex++) {
+                    if (webIndex != 0) builder.append(",").append(part.value.get(webIndex));
+                    else builder.append(part.value.get(webIndex));
+                }
+                builder.append("<br>");
+            }
+        }
+        builder.append("</body></html>");
+        return builder.toString();
+    }
 }

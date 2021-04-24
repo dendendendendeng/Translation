@@ -17,11 +17,11 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.util.LinkedHashMap;
 
+import static com.mycompany.Util.CONST_VAL.HISTORY;
 import static com.mycompany.Util.Utils.transformResultToString;
 
 public class Translate extends AnAction {
-    private final MapOfHistory history = ServiceManager.getService(MapOfHistory.class);//之前保存的数据
-    private LinkedHashMap<String, YouDaoResult> map = history.getState();
+    private LinkedHashMap<String, YouDaoResult> map = HISTORY.getState();
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
@@ -41,6 +41,8 @@ public class Translate extends AnAction {
         if(map == null) map = new LinkedHashMap<>();
         if(map.get(selectedText) != null) {//已经查询过一次
             popup(map.get(selectedText),mEditor);
+            System.out.println("从缓存中获取数据 待查找的值为"+selectedText);
+            System.out.println("缓存中单词的个数为 "+map.size());
         }
 
         //post同步获取数据
@@ -48,8 +50,9 @@ public class Translate extends AnAction {
         System.out.println("请求结果为 "+result);
         YouDaoResult youDaoResult = JSON.parseObject(result, YouDaoResult.class);
         popup(youDaoResult,mEditor);
+
         map.put(youDaoResult.query,youDaoResult);
-        history.loadState(map);
+        HISTORY.loadState(map);
     }
 
     //显示英译中的结果

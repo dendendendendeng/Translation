@@ -24,12 +24,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.LinkedHashMap;
 
+import static com.mycompany.Util.CONST_VAL.HISTORY;
 import static com.mycompany.Util.Utils.stringListToStringArray;
 
 public class TranslateAndReplace extends AnAction {
     private String selectResult = null;//最后选中的要替换源代码中的中文翻译
-    private final MapOfHistory history = ServiceManager.getService(MapOfHistory.class);//之前保存的数据
-    private LinkedHashMap<String, YouDaoResult> map = history.getState();
+    private LinkedHashMap<String, YouDaoResult> map = HISTORY.getState();
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
@@ -53,6 +53,7 @@ public class TranslateAndReplace extends AnAction {
             String[] translationArray = stringListToStringArray(result.translation);
             popupList(translationArray,e,textRange);
             System.out.println("从缓存中获取数据 待查找的值为"+selectedText);
+            System.out.println("缓存中单词的个数为 "+map.size());
             return;
         }
 
@@ -63,7 +64,7 @@ public class TranslateAndReplace extends AnAction {
         String[] translationArray = stringListToStringArray(youDaoResult.translation);
         popupList(translationArray,e,textRange);
         map.put(selectedText,youDaoResult);
-        history.loadState(map);
+        HISTORY.loadState(map);
     }
 
     public void popupList(String[] results, AnActionEvent event, TextRange textRange){

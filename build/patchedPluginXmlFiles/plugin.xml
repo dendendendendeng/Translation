@@ -24,5 +24,9 @@
       <add-to-group group-id="EditMenu" anchor="first"/>
       <keyboard-shortcut keymap="$default" first-keystroke="alt R"/>
     </action>
+    <action id="NewWordsHistory" class="com.mycompany.NewWordsHistory" text="NewWordsHistory" description="NewWordsHistory">
+      <add-to-group group-id="EditMenu" anchor="last"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="shift alt N"/>
+    </action>
   </actions>
 </idea-plugin>
