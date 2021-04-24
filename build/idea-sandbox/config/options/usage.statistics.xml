@@ -58,7 +58,7 @@
     <feature id="editing.completion.postfix" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="refactoring.introduceVariable.incompleteStatement" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="dir.diff" count="0" last-shown="0" last-used="0" shown-count="0" />
-    <feature id="editing.select.word" count="101" last-shown="0" last-used="1619238554259" shown-count="0" />
+    <feature id="editing.select.word" count="106" last-shown="0" last-used="1619240348751" shown-count="0" />
     <feature id="editing.add.carets.using.double.ctrl" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="codeassists.quickjavadoc.lookup" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="ui.scheme.quickswitch" count="0" last-shown="0" last-used="0" shown-count="0" />
@@ -90,6 +90,6 @@
     </fixesStatsTag>
   </component>
   <component name="UsagesStatistic" show-notification="false">
-    <system-event-id recorder="FUS" id="24933" />
+    <system-event-id recorder="FUS" id="25081" />
   </component>
 </application>

@@ -1,11 +1,11 @@
 package com.mycompany;
 
 import com.alibaba.fastjson.JSON;
-import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.command.WriteCommandAction;
+import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.ui.popup.JBPopup;
@@ -13,6 +13,7 @@ import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.ui.components.JBList;
 import com.mycompany.Util.YouDaoRequest;
+import com.mycompany.YouDao.YouDaoResult;
 import org.apache.http.util.TextUtils;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,11 +22,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.LinkedHashMap;
 
 import static com.mycompany.Util.Utils.stringListToStringArray;
 
 public class TranslateAndReplace extends AnAction {
     private String selectResult = null;//最后选中的要替换源代码中的中文翻译
+    private final MapOfHistory history = ServiceManager.getService(MapOfHistory.class);//之前保存的数据
+    private LinkedHashMap<String, YouDaoResult> map = history.getState();
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
@@ -36,17 +40,17 @@ public class TranslateAndReplace extends AnAction {
 
         //获取选中的文本
         SelectionModel model = mEditor.getSelectionModel();
+        TextRange textRange = new TextRange(model.getSelectionStart(),model.getSelectionEnd());
         String selectedText = model.getSelectedText();
         if (TextUtils.isEmpty(selectedText)) {
             return;
         }
-
         System.out.println(selectedText);
-        PropertiesComponent propertiesComponent = PropertiesComponent.getInstance();
-        TextRange textRange = new TextRange(model.getSelectionStart(),model.getSelectionEnd());
 
-        if(propertiesComponent.getValue(selectedText) != null) {//已经查询过一次
-            String[] translationArray = propertiesComponent.getValues(selectedText);
+        if(map == null) map = new LinkedHashMap<>();
+        if(map.get(selectedText) != null) {//已经查询过一次
+            YouDaoResult result = map.get(selectedText);
+            String[] translationArray = stringListToStringArray(result.translation);
             popupList(translationArray,e,textRange);
             System.out.println("从缓存中获取数据 待查找的值为"+selectedText);
             return;
@@ -58,7 +62,8 @@ public class TranslateAndReplace extends AnAction {
         YouDaoResult youDaoResult = JSON.parseObject(result, YouDaoResult.class);
         String[] translationArray = stringListToStringArray(youDaoResult.translation);
         popupList(translationArray,e,textRange);
-        propertiesComponent.setValues(youDaoResult.query,translationArray);
+        map.put(selectedText,youDaoResult);
+        history.loadState(map);
     }
 
     public void popupList(String[] results, AnActionEvent event, TextRange textRange){

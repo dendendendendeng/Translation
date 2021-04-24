@@ -1,5 +1,9 @@
 package com.mycompany.Util;
 
+import com.intellij.openapi.ui.Messages;
+import com.mycompany.YouDao.WebPart;
+import com.mycompany.YouDao.YouDaoResult;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -74,5 +78,31 @@ public class Utils {
     //判断字符串中是否包含中文字符
     public static boolean isContainZh(String selectedString){
         return selectedString.matches(".*[\u4E00-\u9FA5].*");
+    }
+
+    public static String transformResultToString(YouDaoResult result){
+        StringBuilder builder = new StringBuilder();
+        builder.append("选中的文本为:");
+        builder.append(result.query);
+        builder.append("\n\n基本翻译为：\n");
+        if(result.translation == null) {
+            Messages.showMessageDialog("Translation字段为空", "Translation", Messages.getInformationIcon());
+            return "";
+        }
+        for (String item : result.translation) {
+            builder.append(item).append("\n");
+        }
+        if (result.web != null) {
+            builder.append("\n网络释义为：\n");
+            for (WebPart part : result.web) {
+                builder.append(part.key).append(":");
+                for (int webIndex = 0; webIndex < part.value.size(); webIndex++) {
+                    if (webIndex != 0) builder.append(",").append(part.value.get(webIndex));
+                    else builder.append(part.value.get(webIndex));
+                }
+                builder.append("\n");
+            }
+        }
+        return builder.toString();
     }
 }

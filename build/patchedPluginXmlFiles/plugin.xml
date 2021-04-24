@@ -12,7 +12,9 @@
     &lt;em&gt;Translate&lt;/em&gt;
     </description>
   <depends>com.intellij.modules.platform</depends>
-  <extensions defaultExtensionNs="com.intellij"/>
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceImplementation="com.mycompany.MapOfHistory"/>
+  </extensions>
   <actions>
     <action id="Translation.ID" class="com.mycompany.Translate" text="Input" description="选择文本以翻译：">
       <add-to-group group-id="EditMenu" anchor="first"/>
