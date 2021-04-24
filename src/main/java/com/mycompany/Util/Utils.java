@@ -35,13 +35,13 @@ public class Utils {
                 // 传入要加密的字符串
                 messageDigest.update(strText.getBytes());
                 // 得到 byte 類型结果
-                byte byteBuffer[] = messageDigest.digest();
+                byte[] byteBuffer = messageDigest.digest();
 
                 // 將 byte 轉換爲 string
-                StringBuffer strHexString = new StringBuffer();
+                StringBuilder strHexString = new StringBuilder();
                 // 遍歷 byte buffer
-                for (int i = 0; i < byteBuffer.length; i++) {
-                    String hex = Integer.toHexString(0xff & byteBuffer[i]);
+                for (byte b : byteBuffer) {
+                    String hex = Integer.toHexString(0xff & b);
                     if (hex.length() == 1) {
                         strHexString.append('0');
                     }
@@ -64,7 +64,7 @@ public class Utils {
         String[] array = new String[length];
         for(int i=0;i<length;i++) {
             String[] items = list.get(i).split(" ");
-            StringBuffer buffer = new StringBuffer();
+            StringBuilder buffer = new StringBuilder();
             for(String string:items) buffer.append(string);
             array[i] = buffer.toString();
         }

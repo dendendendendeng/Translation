@@ -10,7 +10,7 @@ import static com.mycompany.Util.Utils.isContainZh;
 public class YouDaoRequest {
 
     public static String youDaoRequest(String selectedString){
-        String jsonResult = new String();//要返回的json字符串
+        String jsonResult = "";//要返回的json字符串
         OkHttpClient client = new OkHttpClient();//创建OkHttpClient对象。
 
         Request request = new Request.Builder()//创建Request 对象。

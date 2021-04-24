@@ -15,38 +15,20 @@ import com.intellij.ui.JBColor;
 import com.intellij.ui.components.JBList;
 import com.mycompany.Util.YouDaoRequest;
 import org.apache.http.util.TextUtils;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
 
 import static com.mycompany.Util.Utils.isContainZh;
 import static com.mycompany.Util.Utils.stringListToStringArray;
 
 public class Replace extends AnAction {
-    private boolean isZhToEn = true;//是否是中译英
     private String selectResult = null;//最后选中的要替换源代码中的中文翻译
-    private Handler handler = new Handler() {
-        @Override
-        public void publish(LogRecord record) {
-
-        }
-
-        @Override
-        public void flush() {
-
-        }
-
-        @Override
-        public void close() throws SecurityException {
-
-        }
-    };
 
     @Override
-    public void actionPerformed(AnActionEvent e) {
+    public void actionPerformed(@NotNull AnActionEvent e) {
         final Editor mEditor = e.getData(PlatformDataKeys.EDITOR);
         if (null == mEditor) {
             return;
@@ -58,9 +40,8 @@ public class Replace extends AnAction {
         if (TextUtils.isEmpty(selectedText)) {
             return;
         }
-        if(isContainZh(selectedText))
-            isZhToEn = true;
-        else isZhToEn = false;
+        //是否是中译英
+        boolean isZhToEn = isContainZh(selectedText);
 
         System.out.println(selectedText);
         PropertiesComponent propertiesComponent = PropertiesComponent.getInstance();
@@ -72,6 +53,7 @@ public class Replace extends AnAction {
                 zhToEn(translationArray,e,textRange);
             }else{
                 String lastResult = propertiesComponent.getValue(selectedText);
+                assert lastResult != null;
                 factory.createHtmlTextBalloonBuilder(lastResult, null, new JBColor(new Color(186, 238, 186), new Color(73, 117, 73)), null)
                         .setFadeoutTime(100000)
                         .createBalloon()
@@ -96,23 +78,23 @@ public class Replace extends AnAction {
     //显示英译中的结果
     public void enToZh(String selectedText,YouDaoResult youDaoResult,Editor mEditor){
         PropertiesComponent propertiesComponent = PropertiesComponent.getInstance();//持久化保存数据
-        StringBuffer zhResult = new StringBuffer();
+        StringBuilder zhResult = new StringBuilder();
         zhResult.append("选中的文本为:");
         zhResult.append(selectedText);
         zhResult.append("\n\n基本翻译为：\n");
         if(youDaoResult.translation == null) {
-            Messages.showMessageDialog("translation字段为空", "Translation", Messages.getInformationIcon());
+            Messages.showMessageDialog("Translation字段为空", "Translation", Messages.getInformationIcon());
             return ;
         }
         for (String item : youDaoResult.translation) {
-            zhResult.append(item + "\n");
+            zhResult.append(item).append("\n");
         }
         if (youDaoResult.web != null) {
             zhResult.append("\n网络释义为：\n");
             for (WebPart part : youDaoResult.web) {
-                zhResult.append(part.key + ":");
+                zhResult.append(part.key).append(":");
                 for (int webIndex = 0; webIndex < part.value.size(); webIndex++) {
-                    if (webIndex != 0) zhResult.append("," + part.value.get(webIndex));
+                    if (webIndex != 0) zhResult.append(",").append(part.value.get(webIndex));
                     else zhResult.append(part.value.get(webIndex));
                 }
                 zhResult.append("\n");
@@ -129,6 +111,7 @@ public class Replace extends AnAction {
     //显示中译英的结果，可以选中并替换
     public void zhToEn(String[] results,AnActionEvent event,TextRange textRange){
         Editor editor = event.getData(PlatformDataKeys.EDITOR);
+        assert editor != null;
         SelectionModel model = editor.getSelectionModel();
         JBList<String> list = new JBList<>();
         list.setListData(results);
