@@ -60,6 +60,7 @@ public class NewWordsHistory extends AnAction {
                 list.setSelectedIndex(index);
             }
         });
+        frame.setTitle("查询历史");
         frame.add(list);
         frame.setVisible(true);
     }

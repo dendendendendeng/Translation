@@ -73,9 +73,9 @@ public class TranslateAndReplace extends AnAction {
         SelectionModel model = editor.getSelectionModel();
         JBList<String> list = new JBList<>();
         list.setListData(results);
-        list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);// 允许可间断的多选// 添加选项选中状态被改变的监听器
 
-        JBPopup popup = JBPopupFactory.getInstance().createComponentPopupBuilder(list,null).createPopup();
+        JBPopup popup = JBPopupFactory.getInstance().createComponentPopupBuilder(list,null)
+                .createPopup();
 
         list.addListSelectionListener(e -> {
             int index = list.getLeadSelectionIndex();//

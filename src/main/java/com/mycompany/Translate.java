@@ -59,7 +59,8 @@ public class Translate extends AnAction {
     public void popup( YouDaoResult youDaoResult, Editor mEditor){
         String result = transformResultToString(youDaoResult);
         JBPopupFactory factory = JBPopupFactory.getInstance();
-        factory.createHtmlTextBalloonBuilder(result, null, new JBColor(new Color(186, 238, 186), new Color(73, 117, 73)), null)
+        factory.createHtmlTextBalloonBuilder(result, null, new JBColor(new Color(186, 238, 186),
+                new Color(73, 117, 73)), null)
                 .setFadeoutTime(100000)
                 .createBalloon()
                 .show(factory.guessBestPopupLocation(mEditor), Balloon.Position.below);

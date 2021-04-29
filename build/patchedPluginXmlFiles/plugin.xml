@@ -16,7 +16,7 @@
     <applicationService serviceImplementation="com.mycompany.MapOfHistory"/>
   </extensions>
   <actions>
-    <action id="Translation.ID" class="com.mycompany.Translate" text="Input" description="选择文本以翻译：">
+    <action id="Translation.ID" class="com.mycompany.Translate" text="Translate" description="选择文本以翻译：">
       <add-to-group group-id="EditMenu" anchor="first"/>
       <keyboard-shortcut keymap="$default" first-keystroke="alt T"/>
     </action>
