@@ -343,6 +343,14 @@
         "lang" : [ "{util#lang}" ],
         "ml_used" : [ "{enum#boolean}" ],
         "query_length" : [ "{regexp#integer}" ],
+        "r_context_type" : [ "{enum#__r_context_type}" ],
+        "r_lookup_element_origin" : [ "{enum:ORIGINAL|ML_COMPLETION|MERGED}" ],
+        "r_ml_app_version" : [ "{regexp#version}" ],
+        "r_ml_enabled" : [ "{enum#boolean}" ],
+        "r_ml_model_version" : [ "{regexp#version}" ],
+        "r_ml_n_proposed_variants" : [ "{regexp#integer}" ],
+        "r_ml_response_received" : [ "{enum#boolean}" ],
+        "r_ml_time_ms" : [ "{regexp#integer}" ],
         "ruby_lookup_usage_location" : [ "{enum#__ruby_lookup_usage_location}" ],
         "schema" : [ "{enum:Maven_Groovy|Gradle|Maven|fxml}", "{util#file_type_schema}" ],
         "selected_index" : [ "{regexp#integer}" ],
@@ -356,6 +364,7 @@
       },
       "enums" : {
         "__completion_char" : [ "ENTER", "TAB", "COMPLETE_STATEMENT", "AUTO_INSERT", "OTHER" ],
+        "__r_context_type" : [ "IDENTIFIER", "NAMESPACE", "DOLLAR_ACCESS", "AT_ACCESS", "IMPORT", "OPERATOR", "UNKNOWN" ],
         "__ruby_lookup_usage_location" : [ "COMMON", "DEBUG", "EVAL", "IRB", "RAILS" ]
       }
     }
@@ -1245,6 +1254,15 @@
       }
     }
   }, {
+    "id" : "ide.error.dialog",
+    "builds" : [ ],
+    "versions" : [ {
+      "from" : "1"
+    } ],
+    "rules" : {
+      "event_id" : [ "{enum:report|report.all|report.and.clear.all|clear.all}" ]
+    }
+  }, {
     "id" : "ide.jumpToLine",
     "builds" : [ ],
     "versions" : [ {
@@ -1618,13 +1636,13 @@
       "from" : "1"
     } ],
     "rules" : {
-      "event_id" : [ "{enum:spring-integration|spring-integration-amqp|spring-amqp|spring-osgi|spring-data-commons|spring-data-jpa|spring-data-mongo|spring-data-neo4j|spring-data-solr|spring-data-hadoop|spring-data-jdbc-ext|spring-core|spring-boot|spring-ws|spring-mvc|spring-security|spring-batch|spring-security-oauth2|spring-security-oauth|apache-tiles|thymeleaf|velocity|freemarker|springOldJavaConfig|spring-cloud-commons|gorm|groovy|grails}", "{enum:micronaut|akka-java|vertx|spark-java|dropwizard|helidon|quarkus|ok3-http|apache-http|unirest|retrofit|spring-cloud|spring-webflux|reactor|rx-java|guice|drools|ktor|cucumber|selenium|selenide|serenity|appium|allure2|allure1|jdi-light|htmlelements|atlas|geb|webtau-http|webtau-browser|jbehave|robotframework|restassured|karate|citrus}", "{enum:eureka|consul|zookeeper|zuul|hystrix|apache-dubbo|grpc|apache-thrift|javalin|armeria|mybatis|jooq|junit4|junit5|testng|kafka-client|activemq-client|rabbitmq-client|amazon-sqs|tapestry5|gwt|struts2|jsf|vaadin-flow|openfeign|jhipster|apache-spark|apache-flink|fluentlenium|testcontainers|blade}", "{enum:javax-cdi|jakarta-cdi|javax-jms|jakarta-jms|javax-jpa|jakarta-jpa|javax-rs|jakarta-rs|r2dbc|osgi|microprofile-config|kotlin|kodein|http4k|rxkotlin}", "{enum:scala|play2|lagom-java|lagom-scala|kotless|spek|koin|gauge-java|apache-deltaspike|apache-deltaspike-data|graphql-java|hexagonkt|jdbi|jooby|optaplanner|spring-webflow}", "{enum:flowable-bpm|activiti-bpm|camunda-bpm|jbpm|apache-ignite|hazelcast|hazelcast-jet|coherence|debezium|streamex|json-path|hibernate|eclipselink-jpa|arquillian|flyway|liquibase|jodd-db|querydsl|apache-camel|rsocket-java|google-http-java-client|google-cloud-pubsub|springfox|apache-rocketmq|opentracing|zipkin2|jaeger|lombok}", "{enum:weld|jakarta-jsf|javax-ejb|jakarta-ejb|javax-websocket|jakarta-websocket|javax-ws|jakarta-ws|javax-batch|jakarta-batch|javax-validation|jakarta-validation|kotest|datanucleus-jpa|openjpa|wiremock|easymock|jmockit|mockito|spock|hibernate-validator|apache-bval|spring-kafka|spring-rabbitmq|spring-session|jackson|gson|micrometer|mapstruct|swagger-v2|swagger-v3|apache-shiro|arrowkt|scalatest|jetbrains-annotations|playwright-java}", "{enum:kotlinx-coroutines|kotlinx-serialization|exposed|ktorm|tornadofx|javafx|mockserver}", "{enum:scalaz|scalamock|scalacheck|specs2|utest|munit|zio-test|akka-http|netty|scalatra|unfiltered|sttp|http4s|twitter-util|akka-actor|shapeless|finagle|cats|breeze|slick|fs2|monix|zio}", "{enum:used.library}" ],
+      "event_id" : [ "{enum:spring-integration|spring-integration-amqp|spring-amqp|spring-osgi|spring-data-commons|spring-data-jpa|spring-data-mongo|spring-data-neo4j|spring-data-solr|spring-data-hadoop|spring-data-jdbc-ext|spring-core|spring-boot|spring-ws|spring-mvc|spring-security|spring-batch|spring-security-oauth2|spring-security-oauth|apache-tiles|thymeleaf|velocity|freemarker|springOldJavaConfig|spring-cloud-commons|gorm|groovy|grails}", "{enum:micronaut|akka-java|vertx|spark-java|dropwizard|helidon|quarkus|ok3-http|apache-http|unirest|retrofit|spring-cloud|spring-webflux|reactor|rx-java|guice|drools|ktor|cucumber|selenium|selenide|serenity|appium|allure2|allure1|jdi-light|htmlelements|atlas|geb|webtau-http|webtau-browser|jbehave|robotframework|restassured|karate|citrus}", "{enum:eureka|consul|zookeeper|zuul|hystrix|apache-dubbo|grpc|apache-thrift|javalin|armeria|mybatis|jooq|junit4|junit5|testng|kafka-client|activemq-client|rabbitmq-client|amazon-sqs|tapestry5|gwt|struts2|jsf|vaadin-flow|openfeign|jhipster|apache-spark|apache-flink|fluentlenium|testcontainers|blade}", "{enum:javax-cdi|jakarta-cdi|javax-jms|jakarta-jms|javax-jpa|jakarta-jpa|javax-rs|jakarta-rs|r2dbc|osgi|microprofile-config|kotlin|kodein|http4k|rxkotlin}", "{enum:scala|play2|lagom-java|lagom-scala|kotless|spek|koin|gauge-java|apache-deltaspike|apache-deltaspike-data|graphql-java|hexagonkt|jdbi|jooby|optaplanner|spring-webflow}", "{enum:flowable-bpm|activiti-bpm|camunda-bpm|jbpm|apache-ignite|hazelcast|hazelcast-jet|coherence|debezium|streamex|json-path|hibernate|eclipselink-jpa|arquillian|flyway|liquibase|jodd-db|querydsl|apache-camel|rsocket-java|google-http-java-client|google-cloud-pubsub|springfox|apache-rocketmq|opentracing|zipkin2|jaeger|lombok}", "{enum:weld|jakarta-jsf|javax-ejb|jakarta-ejb|javax-websocket|jakarta-websocket|javax-ws|jakarta-ws|javax-batch|jakarta-batch|javax-validation|jakarta-validation|kotest|datanucleus-jpa|openjpa|wiremock|easymock|jmockit|mockito|spock|hibernate-validator|apache-bval|spring-kafka|spring-rabbitmq|spring-session|jackson|gson|micrometer|mapstruct|swagger-v2|swagger-v3|apache-shiro|arrowkt|scalatest|jetbrains-annotations|playwright-java}", "{enum:kotlinx-coroutines|kotlinx-serialization|exposed|ktorm|tornadofx|javafx|mockserver}", "{enum:scalaz|scalamock|scalacheck|specs2|utest|munit|zio-test|akka-http|netty|scalatra|unfiltered|sttp|http4s|twitter-util|akka-actor|shapeless|finagle|cats|breeze|slick|fs2|monix|zio|kotlinx-datetime}", "{enum:used.library}" ],
       "event_data" : {
         "library" : [ "{enum#__library}" ],
         "version" : [ "{regexp#version}" ]
       },
       "enums" : {
-        "__library" : [ "spring-integration", "spring-integration-amqp", "spring-amqp", "spring-osgi", "spring-data-commons", "spring-data-jpa", "spring-data-mongo", "spring-data-neo4j", "spring-data-solr", "spring-data-hadoop", "spring-data-jdbc-ext", "spring-core", "spring-boot", "spring-ws", "spring-mvc", "spring-security", "spring-batch", "spring-security-oauth2", "spring-security-oauth", "spring-webflow", "apache-tiles", "thymeleaf", "velocity", "freemarker", "springOldJavaConfig", "spring-cloud-commons", "gorm", "groovy", "grails", "micronaut", "akka-java", "vertx", "spark-java", "dropwizard", "helidon", "quarkus", "ok3-http", "apache-http", "unirest", "retrofit", "spring-cloud", "spring-webflux", "reactor", "rx-java", "guice", "drools", "ktor", "cucumber", "selenium", "selenide", "serenity", "appium", "allure2", "allure1", "jdi-light", "htmlelements", "atlas", "geb", "webtau-http", "webtau-browser", "jbehave", "robotframework", "restassured", "karate", "citrus", "eureka", "consul", "zookeeper", "zuul", "hystrix", "apache-dubbo", "grpc", "apache-thrift", "javalin", "armeria", "mybatis", "jooq", "junit4", "junit5", "testng", "kafka-client", "activemq-client", "rabbitmq-client", "amazon-sqs", "tapestry5", "gwt", "struts2", "jsf", "vaadin-flow", "openfeign", "jhipster", "apache-spark", "apache-flink", "fluentlenium", "testcontainers", "blade", "javax-cdi", "jakarta-cdi", "javax-jms", "jakarta-jms", "javax-jpa", "jakarta-jpa", "javax-rs", "jakarta-rs", "r2dbc", "osgi", "microprofile-config", "kotlin", "kodein", "http4k", "rxkotlin", "scala", "play2", "lagom-java", "lagom-scala", "kotless", "spek", "koin", "gauge-java", "apache-deltaspike", "apache-deltaspike-data", "graphql-java", "hexagonkt", "jdbi", "jooby", "optaplanner", "flowable-bpm", "activiti-bpm", "camunda-bpm", "jbpm", "apache-ignite", "hazelcast", "hazelcast-jet", "coherence", "debezium", "streamex", "json-path", "hibernate", "eclipselink-jpa", "arquillian", "flyway", "liquibase", "jodd-db", "querydsl", "apache-camel", "rsocket-java", "google-http-java-client", "google-cloud-pubsub", "springfox", "apache-rocketmq", "opentracing", "zipkin2", "jaeger", "lombok", "weld", "jakarta-jsf", "javax-ejb", "jakarta-ejb", "javax-websocket", "jakarta-websocket", "javax-ws", "jakarta-ws", "javax-batch", "jakarta-batch", "javax-validation", "jakarta-validation", "kotest", "datanucleus-jpa", "openjpa", "wiremock", "easymock", "jmockit", "mockito", "spock", "hibernate-validator", "apache-bval", "spring-kafka", "spring-rabbitmq", "spring-session", "jackson", "gson", "micrometer", "mapstruct", "swagger-v2", "swagger-v3", "apache-shiro", "arrowkt", "scalatest", "jetbrains-annotations", "playwright-java", "kotlinx-coroutines", "kotlinx-serialization", "exposed", "ktorm", "tornadofx", "javafx", "mockserver", "scalaz", "scalamock", "scalacheck", "specs2", "utest", "munit", "zio-test", "akka-http", "netty", "scalatra", "unfiltered", "sttp", "http4s", "twitter-util", "akka-actor", "shapeless", "finagle", "cats", "breeze", "slick", "fs2", "monix", "zio" ]
+        "__library" : [ "spring-integration", "spring-integration-amqp", "spring-amqp", "spring-osgi", "spring-data-commons", "spring-data-jpa", "spring-data-mongo", "spring-data-neo4j", "spring-data-solr", "spring-data-hadoop", "spring-data-jdbc-ext", "spring-core", "spring-boot", "spring-ws", "spring-mvc", "spring-security", "spring-batch", "spring-security-oauth2", "spring-security-oauth", "spring-webflow", "apache-tiles", "thymeleaf", "velocity", "freemarker", "springOldJavaConfig", "spring-cloud-commons", "gorm", "groovy", "grails", "micronaut", "akka-java", "vertx", "spark-java", "dropwizard", "helidon", "quarkus", "ok3-http", "apache-http", "unirest", "retrofit", "spring-cloud", "spring-webflux", "reactor", "rx-java", "guice", "drools", "ktor", "cucumber", "selenium", "selenide", "serenity", "appium", "allure2", "allure1", "jdi-light", "htmlelements", "atlas", "geb", "webtau-http", "webtau-browser", "jbehave", "robotframework", "restassured", "karate", "citrus", "eureka", "consul", "zookeeper", "zuul", "hystrix", "apache-dubbo", "grpc", "apache-thrift", "javalin", "armeria", "mybatis", "jooq", "junit4", "junit5", "testng", "kafka-client", "activemq-client", "rabbitmq-client", "amazon-sqs", "tapestry5", "gwt", "struts2", "jsf", "vaadin-flow", "openfeign", "jhipster", "apache-spark", "apache-flink", "fluentlenium", "testcontainers", "blade", "javax-cdi", "jakarta-cdi", "javax-jms", "jakarta-jms", "javax-jpa", "jakarta-jpa", "javax-rs", "jakarta-rs", "r2dbc", "osgi", "microprofile-config", "kotlin", "kodein", "http4k", "rxkotlin", "scala", "play2", "lagom-java", "lagom-scala", "kotless", "spek", "koin", "gauge-java", "apache-deltaspike", "apache-deltaspike-data", "graphql-java", "hexagonkt", "jdbi", "jooby", "optaplanner", "flowable-bpm", "activiti-bpm", "camunda-bpm", "jbpm", "apache-ignite", "hazelcast", "hazelcast-jet", "coherence", "debezium", "streamex", "json-path", "hibernate", "eclipselink-jpa", "arquillian", "flyway", "liquibase", "jodd-db", "querydsl", "apache-camel", "rsocket-java", "google-http-java-client", "google-cloud-pubsub", "springfox", "apache-rocketmq", "opentracing", "zipkin2", "jaeger", "lombok", "weld", "jakarta-jsf", "javax-ejb", "jakarta-ejb", "javax-websocket", "jakarta-websocket", "javax-ws", "jakarta-ws", "javax-batch", "jakarta-batch", "javax-validation", "jakarta-validation", "kotest", "datanucleus-jpa", "openjpa", "wiremock", "easymock", "jmockit", "mockito", "spock", "hibernate-validator", "apache-bval", "spring-kafka", "spring-rabbitmq", "spring-session", "jackson", "gson", "micrometer", "mapstruct", "swagger-v2", "swagger-v3", "apache-shiro", "arrowkt", "scalatest", "jetbrains-annotations", "playwright-java", "kotlinx-coroutines", "kotlinx-serialization", "exposed", "ktorm", "tornadofx", "javafx", "mockserver", "scalaz", "scalamock", "scalacheck", "specs2", "utest", "munit", "zio-test", "akka-http", "netty", "scalatra", "unfiltered", "sttp", "http4s", "twitter-util", "akka-actor", "shapeless", "finagle", "cats", "breeze", "slick", "fs2", "monix", "zio", "kotlinx-datetime" ]
       }
     }
   }, {
@@ -2393,7 +2411,7 @@
       "from" : "1"
     } ],
     "rules" : {
-      "event_id" : [ "{enum:registry|experiment}" ],
+      "event_id" : [ "{enum:registry|experiment|advanced.setting}" ],
       "event_data" : {
         "id" : [ "{util#registry_key}" ],
         "plugin" : [ "{util#plugin}" ],
@@ -2410,6 +2428,28 @@
     } ],
     "rules" : {
       "event_id" : [ "{util#registry_key}" ]
+    }
+  }, {
+    "id" : "plugin.manager",
+    "builds" : [ ],
+    "versions" : [ {
+      "from" : "1"
+    } ],
+    "rules" : {
+      "event_id" : [ "{enum#__event_id}" ],
+      "event_data" : {
+        "acceptance_result" : [ "{enum:ACCEPTED|DECLINED|AUTO_ACCEPTED}" ],
+        "plugin" : [ "{util#plugin}" ],
+        "plugin_type" : [ "{util#plugin_type}" ],
+        "plugin_version" : [ "{util#plugin_version}" ],
+        "previous_version" : [ "{util#plugin_version}" ],
+        "signature_check_result" : [ "{enum:INVALID_SIGNATURE|MISSING_SIGNATURE|WRONG_SIGNATURE|SUCCESSFUL}" ],
+        "source" : [ "{enum:MARKETPLACE|CUSTOM_REPOSITORY|FROM_DISK}" ],
+        "states" : [ "{enum:ENABLE_GLOBALLY|ENABLE_FOR_PROJECT|ENABLE_FOR_PROJECT_DISABLE_GLOBALLY|DISABLE_GLOBALLY|DISABLE_FOR_PROJECT|DISABLE_FOR_PROJECT_ENABLE_GLOBALLY}" ]
+      },
+      "enums" : {
+        "__event_id" : [ "plugin.install.third.party.check", "plugin.installation.finished", "plugin.installation.started", "plugin.signature.check.result", "plugin.signature.warning.shown", "plugin.state.changed", "plugin.was.removed" ]
+      }
     }
   }, {
     "id" : "plugins",
@@ -3349,6 +3389,7 @@
       "event_id" : [ "{enum#os}", "{enum:os.name|os.timezone|machine.id}" ],
       "event_data" : {
         "id" : [ "{regexp#hash}", "{enum:unknown}" ],
+        "locale" : [ "{enum#__locale}" ],
         "name" : [ "{enum#os}" ],
         "release" : [ "{enum#linux}" ],
         "revision" : [ "{regexp#integer}" ],
@@ -3356,6 +3397,7 @@
         "version" : [ "{regexp#version}", "{enum:unknown.format}", "{enum#__version}" ]
       },
       "enums" : {
+        "__locale" : [ "cs", "da", "de", "en", "es", "fr", "hi", "ja", "ko", "nb", "nl", "nn", "no", "pl", "pt", "ro", "ru", "sv", "tr", "uk", "vi", "zh" ],
         "__version" : [ "6.0", "6.1", "6.2", "6.3", "10.0" ],
         "linux" : [ "unknown", "alpine", "amzn", "antergos", "arch", "centos", "debian", "deepin", "elementary", "fedora", "galliumos", "gentoo", "kali", "linuxmint", "manjaro", "neon", "nixos", "ol", "opensuse", "opensuse-leap", "opensuse-tumbleweed", "freedesktop", "parrot", "raspbian", "rhel", "sabayon", "solus", "ubuntu", "zorin", "custom" ]
       },
@@ -4160,5 +4202,5 @@
       "version" : "Unknown|unknown.format|unknown|UNKNOWN|((\\d+\\.?)*\\d+)"
     }
   },
-  "version" : "1818"
+  "version" : "1838"
 }

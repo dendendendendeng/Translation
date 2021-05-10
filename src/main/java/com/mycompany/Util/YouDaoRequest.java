@@ -1,17 +1,29 @@
 package com.mycompany.Util;
 
+import com.alibaba.fastjson.JSON;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.util.TextRange;
+import com.mycompany.YouDao.YouDaoResult;
 import okhttp3.*;
 
+import javax.swing.*;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.LinkedHashMap;
 
 import static com.mycompany.Util.CONST_VAL.*;
+import static com.mycompany.Util.Popup.popup;
+import static com.mycompany.Util.Popup.popupList;
 import static com.mycompany.Util.Utils.isContainZh;
+import static com.mycompany.Util.Utils.stringListToStringArray;
 
 public class YouDaoRequest {
+    private static final OkHttpClient client = new OkHttpClient();//创建OkHttpClient对象。
+    private static LinkedHashMap<String, YouDaoResult> map = HISTORY.getState();
 
     public static String youDaoRequest(String selectedString){
         String jsonResult = "";//要返回的json字符串
-        OkHttpClient client = new OkHttpClient();//创建OkHttpClient对象。
 
         Request request = new Request.Builder()//创建Request 对象。
                 .url(YOUDAO_APP_URL)
@@ -24,22 +36,80 @@ public class YouDaoRequest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        client.newCall(request).enqueue(new Callback() {
-//            @Override
-//            public void onFailure(Call call, IOException e) {
-//                jsonResult = new String();
-//            }
-//
-//            @Override
-//            public void onResponse(Call call, Response response) throws IOException {
-//                if(response.isSuccessful()){
-//                    jsonResult = response.body().string();
-//                }else {
-//                    jsonResult = response.body().string();
-//                }
-//            }
-//        });
         return jsonResult;
+    }
+
+    public static void requestAndPopup(String selectedText,AnActionEvent event, TextRange textRange){
+        Request request = new Request.Builder()
+                .url(YOUDAO_APP_URL)
+                .post(builtFormBody(selectedText).build())
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                try {
+                    SwingUtilities.invokeAndWait(() -> {
+
+                    });
+                } catch (InterruptedException | InvocationTargetException interruptedException) {
+                    interruptedException.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if(response.isSuccessful()){
+                    try {
+                        String result = response.body().string();
+                        YouDaoResult youDaoResult = JSON.parseObject(result, YouDaoResult.class);
+                        String[] translationArray = stringListToStringArray(youDaoResult.translation);
+                        SwingUtilities.invokeAndWait(() -> popupList(translationArray,event,textRange));
+                        if(map == null) map = new LinkedHashMap<>();
+                        map.put(selectedText,youDaoResult);
+                        HISTORY.loadState(map);
+                    } catch (InterruptedException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    try {
+                        SwingUtilities.invokeAndWait(() -> {
+
+                        });
+                    } catch (InterruptedException | InvocationTargetException interruptedException) {
+                        interruptedException.printStackTrace();
+                    }
+                }
+            }
+        });
+    }
+
+    public static void requestAndReplace(String selectedString, Editor mEditor){
+        Request request = new Request.Builder()//创建Request 对象。
+                .url(YOUDAO_APP_URL)
+                .post(builtFormBody(selectedString).build())//传递请求体
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if(response.isSuccessful()){
+                    try {String result = response.body().string();
+                        YouDaoResult youDaoResult = JSON.parseObject(result, YouDaoResult.class);
+                        if(map == null) map = new LinkedHashMap<>();
+                        map.put(youDaoResult.query,youDaoResult);
+                        HISTORY.loadState(map);
+                        SwingUtilities.invokeAndWait(() -> popup(youDaoResult,mEditor));
+                    } catch (InterruptedException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     public static FormBody.Builder builtFormBody(String selectedString){
