@@ -3,6 +3,7 @@ package com.mycompany.Util;
 import com.alibaba.fastjson.JSON;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.util.TextRange;
 import com.mycompany.YouDao.YouDaoResult;
 import okhttp3.*;
@@ -49,9 +50,7 @@ public class YouDaoRequest {
             @Override
             public void onFailure(Call call, IOException e) {
                 try {
-                    SwingUtilities.invokeAndWait(() -> {
-
-                    });
+                    SwingUtilities.invokeAndWait(() -> Messages.showMessageDialog("网络请求出现错误！", "Information", Messages.getInformationIcon()));
                 } catch (InterruptedException | InvocationTargetException interruptedException) {
                     interruptedException.printStackTrace();
                 }
@@ -73,9 +72,7 @@ public class YouDaoRequest {
                     }
                 }else{
                     try {
-                        SwingUtilities.invokeAndWait(() -> {
-
-                        });
+                        SwingUtilities.invokeAndWait(() -> Messages.showMessageDialog("网络请求出现错误！", "Information", Messages.getInformationIcon()));
                     } catch (InterruptedException | InvocationTargetException interruptedException) {
                         interruptedException.printStackTrace();
                     }
@@ -92,7 +89,11 @@ public class YouDaoRequest {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-
+                try {
+                    SwingUtilities.invokeAndWait(() -> Messages.showMessageDialog("网络请求出现错误！", "Information", Messages.getInformationIcon()));
+                } catch (InterruptedException | InvocationTargetException interruptedException) {
+                    interruptedException.printStackTrace();
+                }
             }
 
             @Override
@@ -106,6 +107,12 @@ public class YouDaoRequest {
                         SwingUtilities.invokeAndWait(() -> popup(youDaoResult,mEditor));
                     } catch (InterruptedException | InvocationTargetException e) {
                         e.printStackTrace();
+                    }
+                }else{
+                    try {
+                        SwingUtilities.invokeAndWait(() -> Messages.showMessageDialog("网络请求出现错误！", "Information", Messages.getInformationIcon()));
+                    } catch (InterruptedException | InvocationTargetException interruptedException) {
+                        interruptedException.printStackTrace();
                     }
                 }
             }
